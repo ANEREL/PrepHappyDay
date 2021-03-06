@@ -1,0 +1,12 @@
+{
+  "name": "HappyDay",
+  "displayName": "HappyDay",
+  "expo": {
+    "name": "HappyDay",
+    "slug": "HappyDay",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
