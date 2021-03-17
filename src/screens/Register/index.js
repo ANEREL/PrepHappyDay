@@ -26,8 +26,16 @@ const Register = () => {
 
     useFocusEffect(
         React.useCallback(() => {
-            if (data) {
-                clearAuthState()(authDispatch);
+
+            // This will run on entry into the screen
+            // console.log('Hello')
+
+            // This will run on exit of screen
+            // 'Clean up function'
+            return () => {
+                if (data) {
+                    clearAuthState()(authDispatch);
+                }
             }
         }, [data, error])
     );

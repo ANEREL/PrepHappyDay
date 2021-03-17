@@ -11,6 +11,8 @@ import styles from './style';
 
 import { LOGIN } from '../../constants/routeNames';
 
+import Message from '../common/message';
+
 const RegisterComponent = ({ onSubmit, onChange, form, errors, error, loading }) => {
 
     const { navigate } = useNavigation();
@@ -27,7 +29,15 @@ const RegisterComponent = ({ onSubmit, onChange, form, errors, error, loading })
 
                 <View style={styles.form}>
 
-                    {error && <Text>{error.error}</Text>}
+                    {error &&
+                        <Message
+                            onDismiss={() => { console.log('dismiss') }}
+                            danger
+                            retry
+                            retryFn={() => { console.log('retry') }}
+                            message={error.error} />
+
+                    }
 
                     <Input
                         label="Username"
