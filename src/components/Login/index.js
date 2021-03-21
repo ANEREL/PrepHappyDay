@@ -12,7 +12,7 @@ import styles from './style';
 import { REGISTER } from '../../constants/routeNames';
 import Message from '../common/message';
 
-const LoginComponent = ({ error, onChange, onSubmit, loading }) => {
+const LoginComponent = ({ error, onChange, justSignedUp, onSubmit, loading, form }) => {
 
     const { navigate } = useNavigation();
 
@@ -27,6 +27,13 @@ const LoginComponent = ({ error, onChange, onSubmit, loading }) => {
                 <Text style={styles.subTitle}>Please login here</Text>
 
                 <View style={styles.form}>
+
+                    {justSignedUp &&
+                        <Message
+                            onDismiss={() => {}}
+                            success
+                            message="Registration Successful!" />
+                    }
 
                     {error && !error.error && (
                         < Message
@@ -46,6 +53,7 @@ const LoginComponent = ({ error, onChange, onSubmit, loading }) => {
                         label="Username"
                         placeholder="Enter Username"
                         error={error?.username?.[0]}
+                        value={form.userName || null}
                         onChangeText={(value) => {
                             onChange({ name: 'userName', value });
                         }}
